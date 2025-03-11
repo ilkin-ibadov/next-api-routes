@@ -1,19 +1,24 @@
-import TodoActionForm from "@/components/TodoActionForm"
-import Card from "@/components/Card"
+"use client"
+
+import { useEffect } from "react"
 
 const Home = async () => {
-  const response = await fetch("http://localhost:5001/cards", { cache: 'no-cache' })
-  const cards = await response.json()
+  // Server side fetchingde linking evveline localhost ve port yazilmalidir
+  // const response = await fetch('http://localhost:3000/api/users')
+  // const users = await response.json()
+
+  const getUsers = async () => {
+    const response = await fetch('/api/users')
+    const users = await response.json()
+    console.log(users)
+  }
+
+  useEffect(() => {
+    getUsers()
+  })
 
   return (
-    <>
-      <TodoActionForm />
-
-      <div className="grid grid-cols-3 p-10 gap-5">
-        <h1 className="font-bold text-4xl col-span-3 mb-5">Cards</h1>
-        {cards.map(card => <Card card={card} key={card._id} />)}
-      </div>
-    </>
+    <div>Home</div>
   )
 }
 
