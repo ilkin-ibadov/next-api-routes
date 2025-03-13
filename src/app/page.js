@@ -2,7 +2,7 @@
 
 import { useEffect } from "react"
 
-const Home = async () => {
+const Home = () => {
   // Server side fetchingde linking evveline localhost ve port yazilmalidir
   // const response = await fetch('http://localhost:3000/api/users')
   // const users = await response.json()
